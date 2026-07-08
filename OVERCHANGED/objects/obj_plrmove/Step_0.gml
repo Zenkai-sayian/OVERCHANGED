@@ -3,7 +3,17 @@ event_inherited()
 
 //movement
 var movex = (keyboard_check(global.RIGHT) - keyboard_check(global.LEFT)) * spd 
-var movey =(keyboard_check(global.DOWN) - keyboard_check(global.UP)) * spd 
+var movey =	(keyboard_check(global.DOWN) - keyboard_check(global.UP)) * spd 
+
+if place_meeting(x + movex, y, obj_wall)
+{
+	movex = 0
+}
+if place_meeting(x, y + movey, obj_wall)
+{
+	movey = 0
+}
+
 x += movex
 y += movey
 
@@ -15,7 +25,6 @@ if actor != noone and variable_instance_exists(id,"actor")
 	{
 		actor.image_index = 0.99
 		actor.image_speed = 0
-		print(["yes"])
 	}
 	else
 	{
@@ -40,5 +49,3 @@ if actor != noone and variable_instance_exists(id,"actor")
 		actor.sprite_index = spr_krisdown
 	}
 }
-
-print([movex,movey,actor,variable_instance_exists(id,"actor")])

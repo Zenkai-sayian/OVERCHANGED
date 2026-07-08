@@ -1,12 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_plrmove",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_wall",
+  "eventList":[],
   "managed":true,
-  "name":"obj_plrmove",
+  "name":"obj_wall",
   "overriddenProperties":[],
   "parent":{
     "name":"OBJECTS",
@@ -33,10 +30,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
-  "spriteMaskId":{
-    "name":"hbx_plr",
-    "path":"sprites/hbx_plr/hbx_plr.yy",
+  "spriteId":{
+    "name":"cornwall",
+    "path":"sprites/cornwall/cornwall.yy",
   },
+  "spriteMaskId":null,
   "visible":true,
 }

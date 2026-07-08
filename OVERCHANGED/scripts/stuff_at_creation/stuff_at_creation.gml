@@ -1,0 +1,1 @@
+global.collideables = [obj_wall,obj_npc]

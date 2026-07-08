@@ -1,9 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_wall",
-  "eventList":[],
+  "%Name":"obj_npc",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_wall",
+  "name":"obj_npc",
   "overriddenProperties":[],
   "parent":{
     "name":"OBJECTS",
@@ -26,13 +28,15 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v2","%Name":"dialogue","filters":[],"listItems":[],"multiselect":false,"name":"dialogue","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":6,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"cornwall",
-    "path":"sprites/cornwall/cornwall.yy",
+    "name":"spr_gary",
+    "path":"sprites/spr_gary/spr_gary.yy",
   },
   "spriteMaskId":null,
   "visible":false,

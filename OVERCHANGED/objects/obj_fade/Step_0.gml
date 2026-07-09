@@ -25,6 +25,6 @@ if (fade_alpha == 1 && fade_state == 1)
 	}
 	
 }
-
+//
 if (fade_alpha == 0 && fade_state == -1)
 	instance_destroy()

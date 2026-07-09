@@ -3,7 +3,7 @@ actor.sprite_index = spr_krisdown
 
 room_persistent = false
 
-//spd = 1
+spd = 1
 space = 5
 state = 0
 

@@ -7,10 +7,13 @@ actor = instance_create_depth(x,y,depth,obj_actor,
 
 room_persistent = false
 
-spd = 1
+spd = 2
 space = 5
 state = 0
 
+popup = false
+fight = false
+
 enablemovement = true
 enableactorspritemovement = true
-steps = 300
+steps = 100

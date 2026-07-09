@@ -1,5 +1,10 @@
 draw_self(); 
 
+if (popup)
+{
+	draw_sprite(spr_popup, 0, x, y - 35)
+}
+
 if (debug_mode)
 {
 	draw_set_color(c_red);

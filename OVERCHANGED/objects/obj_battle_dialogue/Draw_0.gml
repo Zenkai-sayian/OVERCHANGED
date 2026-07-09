@@ -1,0 +1,4 @@
+draw_self()
+
+draw_set_font(global.font)
+draw_text(x - 130, y - 60, show_text)

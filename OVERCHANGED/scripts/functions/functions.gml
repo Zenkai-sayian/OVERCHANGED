@@ -38,9 +38,13 @@ function newcutscene()
 	}
 }
 
-function scr_start_fight()
+function start_fight()
 {
 	global.return_room = room
-	global.enemies = ["test"]
-	
+	global.enemies[0] = 
+	{
+		name : "Test",
+		sprite : spr_enemy_test
+	}
+	room_goto(room_fight)
 }

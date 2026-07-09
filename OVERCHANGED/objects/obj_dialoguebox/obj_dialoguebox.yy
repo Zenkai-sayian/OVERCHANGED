@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_actor",
+  "%Name":"obj_dialoguebox",
   "eventList":[],
   "managed":true,
-  "name":"obj_actor",
+  "name":"obj_dialoguebox",
   "overriddenProperties":[],
   "parent":{
-    "name":"OVERCHANGED",
-    "path":"OVERCHANGED.yyp",
+    "name":"OBJECTS",
+    "path":"folders/OBJECTS.yy",
   },
   "parentObjectId":{
     "name":"obj_base",
@@ -26,14 +26,14 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"v2","%Name":"SETx","filters":[],"listItems":[],"multiselect":false,"name":"SETx","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.0","varType":0,},
-    {"$GMObjectProperty":"v2","%Name":"SETy","filters":[],"listItems":[],"multiselect":false,"name":"SETy","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.0","varType":0,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_dialoguebox",
+    "path":"sprites/spr_dialoguebox/spr_dialoguebox.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

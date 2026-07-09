@@ -1,3 +1,12 @@
+function find(n)
+{
+	with (obj_base) {
+	    if (object_index == n) {
+	        return id
+	    }
+	}
+	return noone
+}
 
 function print(stuff)
 {
@@ -8,3 +17,24 @@ function print(stuff)
 	}
 	show_debug_message(p)
 }
+
+function basicline(n)
+{
+	return {line : n}
+}
+
+function newcutscene()
+{
+	var p = find(obj_dialoguebox)
+	var plr = find(obj_plrmove)
+	if p != noone
+	{
+		p.image_alpha = 1
+		if plr != noone {plr.enablemovement = false}
+	}
+	else
+	{
+		print(["Error! Dialogue box not found"])
+	}
+}
+

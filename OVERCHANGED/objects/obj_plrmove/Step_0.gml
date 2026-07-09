@@ -2,8 +2,8 @@ event_inherited()
 
 
 //movement
-var movex = (keyboard_check(global.RIGHT) - keyboard_check(global.LEFT)) * spd 
-var movey =	(keyboard_check(global.DOWN) - keyboard_check(global.UP)) * spd 
+var movex = (keyboard_check(global.RIGHT) - keyboard_check(global.LEFT)) * spd * enablemovement
+var movey =	(keyboard_check(global.DOWN) - keyboard_check(global.UP)) * spd * enablemovement
 
 for (var i = 0; i < array_length(global.collideables); i++)
 {
@@ -20,7 +20,7 @@ for (var i = 0; i < array_length(global.collideables); i++)
 x += movex
 y += movey
 
-if actor != noone and variable_instance_exists(id,"actor")
+if actor != noone and variable_instance_exists(id,"actor") and enablemovement = true
 {
 	
 	//sets animation speed if idle
@@ -40,6 +40,11 @@ if actor != noone and variable_instance_exists(id,"actor")
 		actor.sprite_index = spr_krisup
 		state = 1
 	}
+	else if keyboard_check(global.DOWN)
+	{
+		actor.sprite_index = spr_krisdown
+		state = 0
+	}
 	else if keyboard_check(global.RIGHT)
 	{
 		actor.sprite_index = spr_krisright
@@ -50,11 +55,7 @@ if actor != noone and variable_instance_exists(id,"actor")
 		actor.sprite_index = spr_krisleft
 		state = 3
 	}
-	else if keyboard_check(global.DOWN)
-	{
-		actor.sprite_index = spr_krisdown
-		state = 0
-	}
+	
 }
 
 var deff = function()
@@ -62,11 +63,12 @@ var deff = function()
 	
 	if keyboard_check_pressed(global.CONFIRM)
 	{
-		print([instance_nearest(x,y,obj_npc).dialogue[0]])
+		//print([instance_nearest(x,y,obj_npc).dialogue[0]])
+		newcutscene()
 	}
 }
 
-print([state])
+//print([state])
 switch state 
 {
 	case 0:

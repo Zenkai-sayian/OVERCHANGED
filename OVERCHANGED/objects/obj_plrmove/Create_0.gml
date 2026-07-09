@@ -1,6 +1,9 @@
-actor = instance_create_depth(x,y,depth,obj_actor)
-actor.sprite_index = spr_krisdown
-actor.persistent = true
+actor = instance_create_depth(x,y,depth,obj_actor,
+{
+	sprite_index : spr_krisdown,
+	persistent : true
+})
+
 
 room_persistent = false
 

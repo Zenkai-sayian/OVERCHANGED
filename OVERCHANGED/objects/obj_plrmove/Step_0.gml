@@ -1,5 +1,4 @@
 event_inherited()
-
 //print([x,y])
 
 //movement
@@ -21,7 +20,7 @@ for (var i = 0; i < array_length(global.collideables); i++)
 x += movex
 y += movey
 
-if actor != noone and variable_instance_exists(id,"actor") and enablemovement = true
+if actor != noone and instance_exists(actor) and enablemovement = true
 {
 	
 	//sets animation speed if idle

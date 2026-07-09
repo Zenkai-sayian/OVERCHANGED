@@ -2,7 +2,7 @@ event_inherited()
 
 fade_alpha += fade_speed * fade_state
 fade_alpha = clamp(fade_alpha, 0, 1)
-print([fade_alpha])
+//print([fade_alpha])
 
 if (fade_alpha == 1 && fade_state == 1)
 {

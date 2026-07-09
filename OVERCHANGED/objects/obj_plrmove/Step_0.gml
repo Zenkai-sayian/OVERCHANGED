@@ -68,7 +68,6 @@ var deff = function()
 	}
 }
 
-//print([state])
 switch state 
 {
 	case 0:
@@ -91,4 +90,15 @@ switch state
 		{
 			deff()
 		}
+}
+
+if (!steps)
+{
+	room_persistent = true
+	scr_start_fight()
+}
+
+if (keyboard_check_pressed(vk_f1) && debug_mode)
+{
+	show_debug_overlay(!is_debug_overlay_open())
 }

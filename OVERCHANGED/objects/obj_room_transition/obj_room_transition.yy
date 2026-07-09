@@ -1,13 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_plrmove",
+  "%Name":"obj_room_transition",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_plrmove","path":"objects/obj_plrmove/obj_plrmove.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_plrmove",
+  "name":"obj_room_transition",
   "overriddenProperties":[],
   "parent":{
     "name":"OBJECTS",
@@ -34,10 +33,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
-  "spriteMaskId":{
-    "name":"hbx_plr",
-    "path":"sprites/hbx_plr/hbx_plr.yy",
+  "spriteId":{
+    "name":"spr_room_transition",
+    "path":"sprites/spr_room_transition/spr_room_transition.yy",
   },
-  "visible":true,
+  "spriteMaskId":null,
+  "visible":false,
 }

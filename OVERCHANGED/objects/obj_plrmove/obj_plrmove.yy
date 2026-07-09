@@ -17,7 +17,7 @@
     "name":"obj_default",
     "path":"objects/obj_default/obj_default.yy",
   },
-  "persistent":false,
+  "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,

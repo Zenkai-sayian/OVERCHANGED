@@ -1,5 +1,6 @@
 event_inherited()
 
+//print([x,y])
 
 //movement
 var movex = (keyboard_check(global.RIGHT) - keyboard_check(global.LEFT)) * spd * enablemovement
@@ -57,6 +58,7 @@ if actor != noone and variable_instance_exists(id,"actor") and enablemovement = 
 	}
 	
 }
+
 
 var deff = function()
 {

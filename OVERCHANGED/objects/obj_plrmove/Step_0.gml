@@ -62,11 +62,11 @@ var deff = function()
 	
 	if keyboard_check_pressed(global.CONFIRM)
 	{
-		print([instance_nearest(x,y,obj_npc).dialogue[0]])
+		// print([instance_nearest(x,y,obj_npc).dialogue[0]])
 	}
 }
 
-print([state])
+// print([state])
 switch state 
 {
 	case 0:
@@ -89,4 +89,15 @@ switch state
 		{
 			deff()
 		}
+}
+
+if (!steps)
+{
+	room_persistent = true
+	scr_start_fight()
+}
+
+if (keyboard_check_pressed(vk_f1) && debug_mode)
+{
+	show_debug_overlay(!is_debug_overlay_open())
 }

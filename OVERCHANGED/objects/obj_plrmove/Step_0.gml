@@ -5,6 +5,8 @@ event_inherited()
 var movex = (keyboard_check(global.RIGHT) - keyboard_check(global.LEFT)) * spd * enablemovement
 var movey =	(keyboard_check(global.DOWN) - keyboard_check(global.UP)) * spd * enablemovement
 
+//print([game_get_speed(gamespeed_fps)])
+
 for (var i = 0; i < array_length(global.collideables); i++)
 {
 	if place_meeting(x + movex, y, global.collideables[i])

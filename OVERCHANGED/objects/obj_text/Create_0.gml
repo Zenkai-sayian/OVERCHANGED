@@ -1,8 +1,7 @@
 xdist = 0
 ydist = 0
 trueord = 0
-letterz = array_create(string_length(setstring),0)
-wordz = string_split(setstring,chr(32))
+
 canto = 0
 llist = []
 tr = 0
@@ -14,6 +13,7 @@ visib = 0
 richtext = 0
 //show_debug_message(string_concat("LENGTH : ",string_length(setstring)))
 //show_debug_message(wordz)
+//setstring = string_concat("* ",setstring)
 show_debug_message(string_concat("maxlwidth: ", string(maxlwidth)))
 show_debug_message(string_concat("setstring: ", setstring))
 
@@ -70,6 +70,9 @@ show_debug_message(string_concat("setstring: ", setstring))
     }
 
 richtext = listB
+setstring = _cleanTxt
+letterz = array_create(string_length(setstring),0)
+wordz = string_split(setstring,chr(32))
 
 //per word
 for (var i  = 0; i < (array_length(wordz)); i++)
@@ -84,7 +87,7 @@ for (var i  = 0; i < (array_length(wordz)); i++)
 		}
 		var _letterord = ord(string_char_at(_cur,l + 1)) - 32
 		visib = _letterord
-		var _sprlength = (sprite_get_width(spr_maintext) - global.font1[_letterord])
+		var _sprlength = (global.font1[_letterord])
 		canto += hspace
 		show_debug_message(string_concat("canto: ", string(canto), " maxlwidth: ", string(maxlwidth), " sprlength: ", string(_sprlength)))
 		if canto + _sprlength > maxlwidth
@@ -95,7 +98,7 @@ for (var i  = 0; i < (array_length(wordz)); i++)
 		}
 		canto += _sprlength
 		waw += 1
-		show_debug_message(string_concat("space width: ", string(sprite_get_width(spr_maintext) - global.font1[0]), " canto after space: ", string(canto)))
+		show_debug_message(string_concat("space width: ", string(global.font1[0]), " canto after space: ", string(canto)))
 	}
 	if bad != 0
 	{
@@ -105,7 +108,7 @@ for (var i  = 0; i < (array_length(wordz)); i++)
 		bad = 0
 	}
 	waw += 1
-	canto += (sprite_get_width(spr_maintext) - global.font1[0])
+	canto += ( global.font1[0])
 	//show_debug_message(string_concat("loop: ", i))
 }
 
@@ -122,7 +125,8 @@ for (var i = 0; i < string_length(setstring);i ++)
 	var p = 0
 	var _child = 0
 	var _letterord = ord(string_char_at(setstring,i + 1)) - 32
-	var _sprlength = (sprite_get_width(spr_maintext) - global.font1[_letterord])
+	var _sprlength = (global.font1[_letterord])
+	//print([_sprlength])
 	var _sprheight = 18 * image_yscale
 	
 	//show_debug_message(string_concat(string_char_at(setstring,i + 1)," ",_letterord, " ", _sprlength))

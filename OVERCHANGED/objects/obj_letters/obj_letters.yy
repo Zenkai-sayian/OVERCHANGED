@@ -42,8 +42,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_txt",
-    "path":"sprites/spr_txt/spr_txt.yy",
+    "name":"spr_maintext",
+    "path":"sprites/spr_maintext/spr_maintext.yy",
   },
   "spriteMaskId":null,
   "visible":true,

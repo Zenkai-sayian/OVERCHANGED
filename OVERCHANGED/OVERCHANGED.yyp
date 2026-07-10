@@ -27,7 +27,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2026.0.0.16",
+    "IDEVersion":"2024.14.4.222",
   },
   "name":"OVERCHANGED",
   "resources":[
@@ -62,6 +62,7 @@
     {"id":{"name":"snd_surprise","path":"sounds/snd_surprise/snd_surprise.yy",},},
     {"id":{"name":"snd_txt2","path":"sounds/snd_txt2/snd_txt2.yy",},},
     {"id":{"name":"cornwall","path":"sprites/cornwall/cornwall.yy",},},
+    {"id":{"name":"fixing_the_letters_on_the_undertale_font_with_this_random_pic_i_found_on_google","path":"sprites/fixing_the_letters_on_the_undertale_font_with_this_random_pic_i_found_on_google/fixing_the_letters_on_the_undertale_font_with_this_random_pic_i_found_on_google.yy",},},
     {"id":{"name":"hbx_plr","path":"sprites/hbx_plr/hbx_plr.yy",},},
     {"id":{"name":"spr_act_bt_sel","path":"sprites/spr_act_bt_sel/spr_act_bt_sel.yy",},},
     {"id":{"name":"spr_act_bt","path":"sprites/spr_act_bt/spr_act_bt.yy",},},
@@ -86,7 +87,6 @@
     {"id":{"name":"spr_popup","path":"sprites/spr_popup/spr_popup.yy",},},
     {"id":{"name":"spr_room_transition","path":"sprites/spr_room_transition/spr_room_transition.yy",},},
     {"id":{"name":"spr_snowdin","path":"sprites/spr_snowdin/spr_snowdin.yy",},},
-    {"id":{"name":"spr_txt","path":"sprites/spr_txt/spr_txt.yy",},},
     {"id":{"name":"ts_snowdin","path":"tilesets/ts_snowdin/ts_snowdin.yy",},},
   ],
   "resourceType":"GMProject",

@@ -1,1 +1,0 @@
-draw_sprite(global.enemies[0].sprite, 1, 0, 0)

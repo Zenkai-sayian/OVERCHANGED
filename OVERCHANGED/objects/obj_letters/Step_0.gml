@@ -1,8 +1,10 @@
+event_inherited()
+
 switch dad.typee
 {
 	default :
-		x = (dad.x + (xdista * dad.image_xscale)) + ((trueorder * dad.sep* dad.image_xscale))
-		y = (dad.y + (ydista * dad.w * dad.image_yscale))
+		x = (dad.x + (xdista * dad.image_xscale)) + ((trueorder * dad.vspace * dad.image_xscale))
+		y = (dad.y + (ydista * dad.hspace * dad.image_yscale))
 		image_xscale = dad.image_xscale
 		image_yscale = dad.image_yscale
 		image_alpha = dad.image_alpha

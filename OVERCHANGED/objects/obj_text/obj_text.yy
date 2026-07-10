@@ -35,6 +35,7 @@
     {"$GMObjectProperty":"v2","%Name":"vspace","filters":[],"listItems":[],"multiselect":false,"name":"vspace","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.0","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"hspace","filters":[],"listItems":[],"multiselect":false,"name":"hspace","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.0","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"maxlwidth","filters":[],"listItems":[],"multiselect":false,"name":"maxlwidth","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.0","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"typee","filters":[],"listItems":[],"multiselect":false,"name":"typee","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.0","varType":2,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

@@ -158,8 +158,6 @@ for (var i = 0; i < string_length(setstring);i ++)
 				xdist -=2
 			}
 		}
-		if 1 = 0
-		{
 		_child = instance_create_depth(xdist * image_xscale,((ydist * _sprheight) + (ydist * vspace)) * image_yscale,depth,obj_letters,{
 			lttr : _letterord,
 			order : i,
@@ -169,7 +167,6 @@ for (var i = 0; i < string_length(setstring);i ++)
 			trueorder : trueord
 		})
 		letterz[i] = _child
-		}
 	xdist += _sprlength
 	trueord += 1
 }

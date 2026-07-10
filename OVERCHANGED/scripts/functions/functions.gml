@@ -30,7 +30,9 @@ function newcutscene()
 	if p != noone
 	{
 		p.image_alpha = 1
+		p.start_dialogue()
 		if plr != noone {plr.enablemovement = false}
+		
 	}
 	else
 	{
@@ -43,4 +45,23 @@ function scr_start_fight()
 	global.return_room = room
 	global.enemies = ["test"]
 	
+}
+
+function createtext(textX,textY,textlayer,stringset,horizontalspace,verticalspace,legnthperline,xsca,ysca)
+{
+	var l = textlayer
+	if typeof(textlayer) == "string" 
+	{
+		l = layer_get_depth(textlayer)
+	}
+	var _texter = instance_create_depth(textX,textY,l,obj_text,
+	{
+		setstring : stringset,
+		hspace : horizontalspace,
+		vspace : verticalspace,
+		maxlwidth : legnthperline,
+	})
+	_texter.image_xscale = (xsca * 0.01)
+	_texter.image_yscale = (ysca * 0.01)
+	return _texter
 }

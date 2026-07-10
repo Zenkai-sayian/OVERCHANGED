@@ -1,0 +1,1 @@
+draw_sprite(global.encounters[global.use_encounter].enemies[0].sprite, 0, 32, 80)

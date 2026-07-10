@@ -1,0 +1,1 @@
+show_debug_message("attack bar " + string(id) + " destroyed")

@@ -32,6 +32,7 @@ if actor != noone and instance_exists(actor) and enablemovement = true
 	else
 	{
 		actor.image_speed = 1
+		steps--
 	}
 	
 	//sets sprite
@@ -93,10 +94,15 @@ switch state
 		}
 }
 
-if (!steps)
+if (steps <= 0 && !fight)
 {
-	room_persistent = true
-	scr_start_fight()
+	enablemovement = false
+	popup = true
+	fight = true
+	steps = 300
+	actor.image_speed = 0
+	audio_play_sound(snd_surprise, 999, false)
+	alarm[0] = 20
 }
 
 if (keyboard_check_pressed(vk_f1) && debug_mode)

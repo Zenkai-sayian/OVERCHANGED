@@ -40,11 +40,12 @@ function newcutscene()
 	}
 }
 
-function scr_start_fight()
+function start_fight()
 {
 	global.return_room = room
-	global.enemies = ["test"]
-	
+	global.use_encounter = 0
+	print([global.encounters[global.use_encounter]])
+	room_goto(room_fight)
 }
 
 function createtext(textX,textY,textlayer,stringset,horizontalspace,verticalspace,legnthperline,xsca,ysca)

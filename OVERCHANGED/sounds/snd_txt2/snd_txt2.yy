@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"mus_temp_fight",
+  "%Name":"snd_txt2",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":56.393448,
+  "duration":1.7142857,
   "exportDir":"",
-  "name":"mus_temp_fight",
+  "name":"snd_txt2",
   "parent":{
     "name":"SOUNDS",
     "path":"folders/SOUNDS.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"mus_temp_fight.mp3",
-  "volume":0.6,
+  "soundFile":"snd_txt2.wav",
+  "volume":1.0,
 }

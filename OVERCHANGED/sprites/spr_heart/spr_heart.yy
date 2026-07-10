@@ -23,7 +23,7 @@
   ],
   "name":"spr_heart",
   "nineSlice":null,
-  "origin":7,
+  "origin":4,
   "parent":{
     "name":"UI",
     "path":"folders/SPRITES/UI.yy",
@@ -76,7 +76,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":4,
-    "yorigin":8,
+    "yorigin":4,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

@@ -4,4 +4,5 @@ actor = instance_create_depth(x, y, depth, obj_actor,
 })
 
 spd = 2
-enablemovement = 1
+enablemovement = false
+iframes = 0

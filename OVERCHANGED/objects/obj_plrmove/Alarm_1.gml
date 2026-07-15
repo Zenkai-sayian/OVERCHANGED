@@ -1,0 +1,1 @@
+actor.image_alpha = 1

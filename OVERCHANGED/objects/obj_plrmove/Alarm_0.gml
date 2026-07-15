@@ -1,3 +1,3 @@
-actor.sprite_index = -1
+actor.image_alpha = 0
 popup = false
 start_fight()

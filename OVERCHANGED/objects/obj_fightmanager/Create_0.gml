@@ -1,41 +1,64 @@
 audio_stop_all()
-audio_play_sound(mus_temp_fight, 999, true)
+audio_play_sound(mus_panic_valor, 1, true)
 
-dialogue = instance_find(obj_battle_dialogue, 0)
+encounter = 
+{
+	name        : global.encounters[global.use_encounter].name,
+	intro_line  : global.encounters[global.use_encounter].intro_line,
+	initialized : global.encounters[global.use_encounter].initialized,
+	init		: global.encounters[global.use_encounter].init,
+	enemies      : []
+}
+
+bbox  = instance_find(obj_battle_box, 0)
 heart = instance_find(obj_heart, 0)
-heart.enablemovement = false
 
-turn = 0
+button_layer = layer_get_id("Assets_Buttons")
+fight_bt     = layer_sprite_get_id(button_layer, "inst_fight")
+act_bt       = layer_sprite_get_id(button_layer, "inst_act")
+item_bt      = layer_sprite_get_id(button_layer, "inst_item")
+mercy_bt     = layer_sprite_get_id(button_layer, "inst_mercy")
 
-is_player_attacking = false
-is_enemy_attacking = false
+state = FightState.INTRO
 
-menu_select = 0
-menu_depth = 0
-menu_change = true
-text_change = true
-submenu_select = 0
+line_set = false
+menu_reset = true
 
-buttons_layer = layer_get_id("Assets_Buttons")
+menu_selection    = FIGHT_BT
+submenu_selection = 0
+selection_changed = true
 
-fight_bt = layer_sprite_get_id(buttons_layer, "graphic_2D217E0D")
-act_bt = layer_sprite_get_id(buttons_layer, "graphic_489AF7B9")
-item_bt = layer_sprite_get_id(buttons_layer, "graphic_58C69BD7")
-mercy_bt = layer_sprite_get_id(buttons_layer, "graphic_2F0F34B9")
+player_attack_started = false
+enemy_attack_started  = false
+attack_time = 0
 
-heart_positions_menu_one =
+heart_positions_menu = 
 [
-	[30, 212],
-	[105, 212],
-	[175, 212],
-	[250, 212]
+	[30, 220],
+	[105, 220],
+	[180, 220],
+	[250, 220]
 ]
 
-hp_fill_ratio = 1
+heart_positions_submenu = 
+[
+	[bbox.x + 8, bbox.y + 16],
+	[102, 140],
+	[72, 160],
+	[102, 160],
+	[72, 180],
+	[102, 180]
+]
 
-end_player_attack = function(dmg, target)
+set_state = function(_state)
 {
-	target.hp -= (dmg - target.df)
-	show_debug_message(target)
-	turn = 1
+	state = _state
+	selection_changed = true
+	line_set = false
+}
+
+start_player_attack = function(target)
+{
+	instance_create_depth(16, 110, -600, obj_field, {target : target})
+	player_attack_started = true
 }

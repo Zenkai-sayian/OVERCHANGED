@@ -48,6 +48,27 @@ function start_fight()
 	room_goto(room_fight)
 }
 
+function dist(a, b)
+{
+	return abs(a - b)
+}
+
+function approach(a, b, s)
+{
+	if (dist(a, b) > s)
+	{
+		if (a < b)
+			a += s
+		else if (a > b)
+			a -= s
+	}
+	else
+	{
+		a = b
+	}
+	return a
+}
+
 function createtext(textX,textY,textlayer,stringset,horizontalspace,verticalspace,legnthperline,xsca,ysca)
 {
 	var l = textlayer
@@ -65,4 +86,14 @@ function createtext(textX,textY,textlayer,stringset,horizontalspace,verticalspac
 	_texter.image_xscale = (xsca * 0.01)
 	_texter.image_yscale = (ysca * 0.01)
 	return _texter
+}
+
+function char_to_index(char)
+{
+	return ord(char) - 32
+}
+
+function parse_line(line)
+{
+	
 }

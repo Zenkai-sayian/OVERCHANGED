@@ -8,3 +8,17 @@ if (enablemovement)
 	x += movex
 	y += movey
 }
+
+if (iframes)
+{
+	iframes--
+}
+
+if (iframes > 0 && iframes % 2 == 0)
+{
+	actor.image_index = 1
+}
+else
+{
+	actor.image_index = 2
+}

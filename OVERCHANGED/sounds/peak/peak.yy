@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"peak",
   "parent":{
-    "name":"SOUNDS",
-    "path":"folders/SOUNDS.yy",
+    "name":"music",
+    "path":"folders/SOUNDS/music.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

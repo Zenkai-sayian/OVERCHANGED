@@ -5,7 +5,7 @@ if (popup)
 	draw_sprite(spr_popup, 0, x, y - 35)
 }
 
-if (debug_mode)
+if (debug_mode && actor.sprite_index != -1)
 {
 	draw_set_color(c_red);
 	draw_set_alpha(0.5);

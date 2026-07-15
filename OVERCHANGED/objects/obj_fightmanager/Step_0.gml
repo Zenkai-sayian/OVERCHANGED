@@ -1,137 +1,181 @@
-if (turn == 0 && !is_player_attacking)
+switch (state)
 {
-	if (keyboard_check_pressed(global.LEFT) && menu_depth == 0)
-	{
-		menu_select = max(menu_select - 1, 0)
-		menu_change = true
-		audio_play_sound(snd_squeak, 999, false)
-	}
-	if (keyboard_check_pressed(global.RIGHT) && menu_depth == 0)
-	{
-		menu_select = min(menu_select + 1, 3)
-		menu_change = true
-		audio_play_sound(snd_squeak, 999, false)
-	}
-	
-	if (keyboard_check_pressed(global.CONFIRM))
-	{
-		if (menu_depth == 0)
+	case FightState.INTRO:
+		if (!encounter.initialized)
 		{
-			menu_depth = 1
-			submenu_select = 0
-			audio_play_sound(snd_select, 999, false)
-			switch (menu_select)
+			encounter.init(encounter)
+		}
+		set_state(FightState.PLAYER_MENU)
+		break
+	case FightState.PLAYER_MENU:
+		var living = 0
+		for (var i = 0; i < array_length(encounter.enemies); ++i)
+		{
+			if (encounter.enemies[i].dead == false)
 			{
-				case 0:
-					dialogue.clear()
-					dialogue.use_enemy_list()
-					break
-				case 1:
-					dialogue.clear()
-					dialogue.use_enemy_list()
-					break
-				case 2:
-					dialogue.clear()
-					break
-				case 3:
-					dialogue.clear()
-					dialogue.use_enemy_list()
-					break
-				default:
-					break
+				living++
 			}
 		}
-		else if (menu_depth == 1)
+		if (!living)
 		{
-			menu_depth = 2
-			switch (menu_select)
-			{
-				case 0:
-					dialogue.clear()
-					dialogue.sprite_index = spr_field
-					instance_create_depth(0, 0, depth - 2, obj_attack_bar).target = global.encounters[global.use_encounter].enemies[submenu_select]
-					is_player_attacking = true
-					break
-				case 1:
-					dialogue.clear()
-					dialogue.use_act_list(submenu_select)
-					heart.x = 20
-					heart.y = 180
-					break
-				default:
-					dialogue.clear()
-					break
-			}
+			set_state(FightState.PLAYER_WON)
 		}
-	}
 	
-	if (keyboard_check_pressed(global.DOWN) && menu_depth >= 1)
-	{
-		submenu_select = min(submenu_select + 1, global.encounters[global.use_encounter].number_of_enemies - 1)
-	}
-	if (keyboard_check_pressed(global.UP) && menu_depth >= 1)
-	{
-		submenu_select = max(submenu_select - 1, 0)
-	}
-	
-	if (keyboard_check_pressed(global.CANCEL))
-	{
-		menu_depth = max(menu_depth - 1, 0)
-		if (menu_depth == 0)
+		if (!line_set)
 		{
-			dialogue.use_default()
+			bbox.my_line = encounter.intro_line
 		}
-		else if (menu_depth == 1)
-		{
-			switch (menu_select)
-			{
-				case 0:
-					dialogue.clear()
-					dialogue.use_enemy_list()
-					break
-				case 1:
-					dialogue.clear()
-					dialogue.use_enemy_list()
-					break
-				case 2:
-					dialogue.clear()
-					break
-				case 3:
-					dialogue.clear()
-					dialogue.use_enemy_list()
-					break
-				default:
-					break
-			}
-		}
-	}
-	
-	if (menu_change)
-	{
-		layer_sprite_change(fight_bt, menu_select == 0 ? spr_fight_bt_sel : spr_fight_bt)
-		layer_sprite_change(act_bt, menu_select == 1 ? spr_act_bt_sel : spr_act_bt)
-		layer_sprite_change(item_bt, menu_select == 2 ? spr_item_bt_sel : spr_item_bt)
-		layer_sprite_change(mercy_bt, menu_select == 3 ? spr_mercy_bt_sel : spr_mercy_bt)
 		
-		heart.x = heart_positions_menu_one[menu_select][0]
-		heart.y = heart_positions_menu_one[menu_select][1]
-		
-	}
+		if (menu_reset)
+		{
+			bbox.use_ideal()
+			menu_reset = false
+		}
 	
-}
-else if (turn == 1)
-{
-	layer_sprite_change(fight_bt, spr_fight_bt)
-	dialogue.sprite_index = spr_dialoguebox
-	dialogue.image_xscale = 0.4
-	dialogue.image_yscale = 1.2
-	heart.x = 160
-	heart.y = 145
-	heart.depth = dialogue.depth - 1
-	heart.enablemovement = true
+		if (keyboard_check_pressed(global.LEFT))
+		{
+			menu_selection--
+			if (menu_selection < FIGHT_BT)
+				menu_selection = MERCY_BT
+			selection_changed = true
+		}
+		
+		if (keyboard_check_pressed(global.RIGHT))
+		{
+			menu_selection++
+			if (menu_selection > MERCY_BT)
+				menu_selection = FIGHT_BT
+			selection_changed = true
+		}
+		
+		if (keyboard_check_pressed(global.CONFIRM))
+		{
+			switch (menu_selection)
+			{
+				case FIGHT_BT:
+					set_state(FightState.TARGET_SELECT)
+					break
+				case ACT_BT:
+					set_state(FightState.TARGET_SELECT)
+					break
+				case ITEM_BT:
+					set_state(FightState.ITEM_SELECT)
+					break
+				case MERCY_BT:
+					set_state(FightState.MERCY_SELECT)
+					break
+			}
+		}
+		
+		if (selection_changed)
+		{
+			layer_sprite_change(fight_bt, menu_selection == FIGHT_BT ? spr_fight_bt_sel : spr_fight_bt)
+			layer_sprite_change(act_bt, menu_selection == ACT_BT ? spr_act_bt_sel : spr_act_bt)
+			layer_sprite_change(item_bt, menu_selection == ITEM_BT ? spr_item_bt_sel : spr_item_bt)
+			layer_sprite_change(mercy_bt, menu_selection == MERCY_BT ? spr_mercy_bt_sel : spr_mercy_bt)
+			
+			heart.x = heart_positions_menu[menu_selection][0]
+			heart.y = heart_positions_menu[menu_selection][1]
+		}
+		
+		break
+		case FightState.TARGET_SELECT:
+			if (!line_set)
+			{
+				bbox.my_line = ""
+				
+				for (var i = 0; i < array_length(encounter.enemies); ++i)
+				{
+					if (instance_exists(encounter.enemies[i]))
+						bbox.my_line += "* " + encounter.enemies[i].name
+					
+				}
+				
+				line_set = true
+			}
+			
+			if (keyboard_check_pressed(global.LEFT))
+			{
+				submenu_selection--
+			}
+			
+			if (keyboard_check_pressed(global.RIGHT))
+			{
+				submenu_selection++
+			}
+			
+			if (keyboard_check_pressed(global.UP))
+			{
+				submenu_selection -= 2
+			}
+			
+			if (keyboard_check_pressed(global.DOWN))
+			{
+				submenu_selection += 2
+			}
+			
+			if (keyboard_check_pressed(global.CONFIRM))
+			{
+				if (!player_attack_started)
+					start_player_attack(encounter.enemies[submenu_selection])
+			}
+			
+			submenu_selection = clamp(submenu_selection, 0, array_length(encounter.enemies) - 1)
+			
+			heart.x = heart_positions_submenu[submenu_selection][0]
+			heart.y = heart_positions_submenu[submenu_selection][1]
+			
+			break
+        case FightState.ENEMY_ATTACK:
+			if (encounter.enemies[0].dead == false)
+			{
+				if (!enemy_attack_started)
+				{
+					heart.x = 162
+					heart.y = 142
+					heart.enablemovement = true
+					encounter.enemies[0].attacks[0].behavior()
+					enemy_attack_started = true
+				}
+			
+				if (attack_time < encounter.enemies[0].attacks[0].length)
+				{
+					attack_time++
+				}
+				else
+				{
+					set_state(FightState.PLAYER_MENU)
+					enemy_attack_started = false
+					player_attack_started = false
+					menu_reset = true
+					attack_time = 0
+				}
+				
+				heart.x = clamp(heart.x, bbox.bb_left + 8, bbox.bb_right - 8)
+				heart.y = clamp(heart.y, bbox.bb_top + 8, bbox.bb_bottom - 8)
+			}
+			else
+			{
+				set_state(FightState.PLAYER_MENU)
+			}
+            break
+		case FightState.PLAYER_WON:
+			audio_stop_all()
+			bbox.my_line = "* You won!\n* You earned nothing."
+			if (keyboard_check_pressed(global.CONFIRM))
+			{
+				obj_plrmove.fight = false
+				obj_plrmove.enablemovement = true
+				obj_plrmove.alarm[1] = 10
+				obj_plrmove.actor.image_speed = 1
+				obj_plrmove.steps = 100
+				
+				instance_create_depth(0, 0, -999, obj_fade, { target_room : global.return_room, location : [obj_plrmove.x, obj_plrmove.y] })
+			}
+			break
 }
 
-hp_fill_ratio = global.hp / global.maxhp
-hp_fill_ratio = clamp(hp_fill_ratio, 0, 1)
-menu_change = false
-text_change = false
+if ((state == FightState.TARGET_SELECT || state == FightState.ITEM_SELECT || state == FightState.MERCY_SELECT) && keyboard_check_pressed(global.CANCEL))
+{
+	set_state(FightState.PLAYER_MENU)
+}

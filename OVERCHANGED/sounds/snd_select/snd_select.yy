@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"snd_select",
   "parent":{
-    "name":"SOUNDS",
-    "path":"folders/SOUNDS.yy",
+    "name":"sfx",
+    "path":"folders/SOUNDS/sfx.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

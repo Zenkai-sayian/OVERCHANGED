@@ -1,0 +1,2 @@
+layer_background_alpha(layer_background_get_id("Background"), 0)
+

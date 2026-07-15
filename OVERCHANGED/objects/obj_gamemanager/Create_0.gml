@@ -1,4 +1,7 @@
-audio_play_sound(peak,10,true)
+audio_play_sound(mus_temp,10,true)
+global.song = mus_temp
+
+display_set_gui_size(320, 240)
 
 dialoguebox = instance_create_depth(
 camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2,
